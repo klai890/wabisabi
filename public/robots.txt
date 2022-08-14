@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Sitemap: https://example.io/sitemap.xml
+Allow: /
+
+# Host
+Host: wabisabi-brown.vercel.app
+
+# Sitemaps
+Sitemap: wabisabi-brown.vercel.app/sitemap.xml
