@@ -4,10 +4,10 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import Drawer from 'components/drawer';
 import { DrawerContext } from 'contexts/drawer/drawer.context';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
-import { Link as ScrollLink } from 'react-scroll';
 import menuItems from './header.data';
 import Logo from 'components/logo';
 import logoDark from 'assets/logo-dark.svg';
+import NextLink from 'next/link'
 
 const MobileDrawer = () => {
   const { state, dispatch } = useContext(DrawerContext);
@@ -37,25 +37,21 @@ const MobileDrawer = () => {
         <Box sx={styles.content}>
           <Logo image={logoDark} />
           <Box sx={styles.menu}>
-            {menuItems.map(({ path, label }, i) => (
-              <ScrollLink
+          {menuItems.map(({ path, label }, i) => (
+              <NextLink
                 activeClass="active"
+                sx={styles.link}
                 to={path}
+                href={path}
                 spy={true}
                 smooth={true}
-                offset={10}
+                offset={-70}
                 duration={500}
                 key={i}
               >
-                {label}
-              </ScrollLink>
+                <p>{label}</p>
+              </NextLink>
             ))}
-          </Box>
-
-          <Box sx={styles.menuFooter}>
-            <Button variant="primary" sx={styles.button}>
-              Purchase Now
-            </Button>
           </Box>
         </Box>
       </Scrollbars>

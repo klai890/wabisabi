@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Flex } from 'theme-ui';
-import { Link } from 'components/link';
-import { Link as ScrollLink } from 'react-scroll';
+import { jsx, Container, Flex } from 'theme-ui';;
 import Logo from 'components/logo';
 import { DrawerProvider } from 'contexts/drawer/drawer.provider';
 import MobileDrawer from './mobileDrawer';
