@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Image, Text, Heading, Container } from 'theme-ui';
+import { Box, Image, Heading } from 'theme-ui';
 import { Link } from 'components/link';
 
 import priceCheck from 'assets/price-check.svg';
 import priceCross from 'assets/price-cross.svg';
 import priceArrow from 'assets/price-arrow.svg';
 
-const PriceCard = ({ data: { title, icon, amount, options, recommended } }) => {
+const PriceCard = ({ data: { title, icon, options, recommended } }) => {
   return (
     <Box
       className={`${
@@ -41,9 +41,8 @@ const PriceCard = ({ data: { title, icon, amount, options, recommended } }) => {
       </Box>
       <Box sx={styles.buttonWrap}>
         <Box className="priceAmount">
-          <Text as="p">Starting from</Text>
           <Link path="#" sx={styles.heading}>
-            {amount}
+            Book Now
           </Link>
         </Box>
         <Link path="#" className="priceButton">
@@ -149,6 +148,7 @@ const styles = {
   },
   heading: {
     color: 'primary',
+    display: 'block',
     fontSize: '26px',
     fontWeight: 700,
     lineHeight: 1,

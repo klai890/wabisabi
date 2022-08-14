@@ -1,14 +1,12 @@
 import React from 'react';
 import { Box, Container, Grid } from 'theme-ui';
-import BlockTitle from 'components/block-title';
-import ServiceCard from 'components/cards/service-card';
 import testimonial1 from 'assets/kid_pics/testimonial_pics/testimonial1.webp';
 import testimonial2 from 'assets/kid_pics/testimonial_pics/testimonial2.webp';
 import testimonial3 from 'assets/kid_pics/testimonial_pics/testimonial3.webp';
 import testimonial4 from 'assets/kid_pics/testimonial_pics/testimonial4.webp';
 import testimonial5 from 'assets/kid_pics/testimonial_pics/testimonial5.webp';
 import testimonial6 from 'assets/kid_pics/testimonial_pics/testimonial6.webp';
-import Overlay from 'components/cards/overlay-testimonial';
+import Overlay from 'components/overlays/overlay-testimonial';
 
 const SERVICES_DATA = [
   {

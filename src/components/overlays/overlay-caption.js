@@ -1,37 +1,46 @@
 import React from 'react';
-import { Box, Heading, Image } from 'theme-ui';
-var eventStr = "";
+import { Box, Text, Heading, Image } from 'theme-ui';
+import { Link } from '../link';
 
-const StaffCarouselCard = ({ image, name, events }) => {
-  eventStr = events.join("/")
-  
+import arrowAngle from '../../assets/arrow-angle.svg';
+
+const OverlayCaption = ({ image, title, description, path, linkLabel }) => {
   return (
-    <Box sx={styles.imgCard}>
+    <Box
+      sx={styles.blogCard}
+      className={`blogCard ${image === null ? 'noThumb ' : ' '} ${
+        description === null ? 'noDescription  ' : ''
+      } ${linkLabel === null ? 'noLabel ' : ''}`}
+    >
       {image !== null && (
         <Box sx={styles.image}>
-          <Image src={image} alt={name} />
+          <Image src={image} alt={title} />
         </Box>
       )}
 
-      <Box sx={styles.content} className="textContent">
+      <Box sx={styles.content} className="blogContent">
         <Heading as="h3">
-            {name}
+            {title}
         </Heading>
-        <p>{eventStr}</p>
+        {description !== null && <Text as="p">{description}</Text>}
+        {linkLabel !== null && (
+          <Link sx={styles.linkLabel} path={path}>
+            {linkLabel} <Image src={arrowAngle} alt="angle icon" />
+          </Link>
+        )}
       </Box>
     </Box>
   );
 };
 
-export default StaffCarouselCard;
+export default OverlayCaption;
 
 const styles = {
-  imgCard: {
+  blogCard: {
     position: 'relative',
     overflow: 'hidden',
     mb: 30,
     mx: 15,
-    textAlign: 'center',
     '&.noThumb': {
       p: '25px',
       backgroundColor: '#F0F0F4',
@@ -47,18 +56,13 @@ const styles = {
       position: 'relative',
       img: {
         width: '100%',
+        filter: 'brightness(70%)',
       },
-      '.textContent': {
+      '.blogContent': {
         position: 'absolute',
-        top: 0,
-        left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage:
-          'linear-gradient(180.06deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.71) 99.95%)',
-        borderRadius: '5px',
         display: 'flex',
-        alignItems: 'flex-end',
         p: '25px',
         h3: {
           m: 0,
@@ -70,22 +74,19 @@ const styles = {
   image: {
     img: {
 
-      borderRadius: '500px',
-      width: '200px',
-      justify: 'center',
+      width: '100%',
+      display: 'block',
     },
   },
   content: {
     h3: {
-      fontSize: '18px',
+      fontSize: '20px',
       color: '#0F2137',
       lineHeight: 1.67,
       fontWeight: 700,
       mt: '20px',
       mb: '15px',
-      a: {
-        color: 'inherit',
-      },
+      color: 'inherit',
     },
     p: {
       fontSize: '16px',

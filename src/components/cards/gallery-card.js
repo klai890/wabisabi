@@ -1,39 +1,40 @@
 import React from 'react';
-import { Box, Text, Heading, Image } from 'theme-ui';
-import { Link } from '../link';
+import { Box } from 'theme-ui';
+import OverlayCaption from 'components/overlays/overlay-caption';
 
-import arrowAngle from '../../assets/arrow-angle.svg';
+// To be used in the staff page for the leadership positions
 
-const Overlay = ({ image, title, description, path, linkLabel }) => {
+const StaffCard = ({ image, caption }) => {
   return (
     <Box
       sx={styles.blogCard}
-      className={`blogCard ${image === null ? 'noThumb ' : ' '} ${
-        description === null ? 'noDescription  ' : ''
-      } ${linkLabel === null ? 'noLabel ' : ''}`}
+    //   className={`blogCard ${image === null ? 'noThumb ' : ' '} ${
+    //     description === null ? 'noDescription  ' : ''
+    //   } ${linkLabel === null ? 'noLabel ' : ''}`}
     >
-      {image !== null && (
+      {/* {image !== null && (
         <Box sx={styles.image}>
-          <Image src={image} alt={title} />
+          <Image src={image} alt={caption} />
         </Box>
-      )}
+      )} */}
 
-      <Box sx={styles.content} className="blogContent">
-        <Heading as="h3">
-            {title}
-        </Heading>
-        {description !== null && <Text as="p">{description}</Text>}
-        {linkLabel !== null && (
-          <Link sx={styles.linkLabel} path={path}>
-            {linkLabel} <Image src={arrowAngle} alt="angle icon" />
-          </Link>
-        )}
-      </Box>
+
+        <OverlayCaption
+          image={image}
+          title={caption}
+          description={null}
+          path="/"
+          linkLabel={null}
+        />
+
+      {/* <Box sx={styles.content} className="blogContent">
+        {caption !== null && <Text as="p">{caption}</Text>}
+      </Box> */}
     </Box>
   );
 };
 
-export default Overlay;
+export default StaffCard;
 
 const styles = {
   blogCard: {
@@ -41,6 +42,15 @@ const styles = {
     overflow: 'hidden',
     mb: 30,
     mx: 15,
+    textAlign: 'center',
+    width: [
+      'calc(100% - 30px)',
+      'calc(100% - 30px)',
+      'calc(50% - 30px)',
+      'calc(50% - 30px)',
+      'calc(33.3333% - 30px)',
+    ],
+
     '&.noThumb': {
       p: '25px',
       backgroundColor: '#F0F0F4',
@@ -56,7 +66,6 @@ const styles = {
       position: 'relative',
       img: {
         width: '100%',
-        filter: 'brightness(60%)',
       },
       '.blogContent': {
         position: 'absolute',
@@ -69,7 +78,6 @@ const styles = {
         borderRadius: '5px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
         p: '25px',
         h3: {
           m: 0,
@@ -80,20 +88,21 @@ const styles = {
   },
   image: {
     img: {
-      borderRadius: '5px',
-      width: '100%',
-      display: 'block',
+
+      borderRadius: '10px',
     },
   },
   content: {
     h3: {
-      fontSize: '34px',
+      fontSize: '18px',
       color: '#0F2137',
       lineHeight: 1.67,
       fontWeight: 700,
       mt: '20px',
       mb: '15px',
-      color: 'inherit',
+      a: {
+        color: 'inherit',
+      },
     },
     p: {
       fontSize: '16px',

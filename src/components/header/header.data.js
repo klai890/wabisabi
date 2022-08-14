@@ -8,7 +8,7 @@ export default [
     label: 'About',
   },
   {
-    path: '/book',
+    path: '/book-view',
     label: 'Book Online',
   },
   {

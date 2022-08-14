@@ -1,37 +1,31 @@
 import React from 'react';
 import { Box, Heading, Image } from 'theme-ui';
-var eventStr = "";
 
-const StaffCarouselCard = ({ image, name, events }) => {
-  eventStr = events.join("/")
-  
+const Overlay = ({ image, title }) => {
   return (
-    <Box sx={styles.imgCard}>
+    <Box sx={styles.overlayCard} className='overlayCard noDescription noLabel'>
       {image !== null && (
         <Box sx={styles.image}>
-          <Image src={image} alt={name} />
+          <Image src={image} alt={title} />
         </Box>
       )}
 
-      <Box sx={styles.content} className="textContent">
-        <Heading as="h3">
-            {name}
-        </Heading>
-        <p>{eventStr}</p>
+      <Box sx={styles.content} className="title">
+        <Heading as="h3"> {title} </Heading>
       </Box>
+
     </Box>
   );
 };
 
-export default StaffCarouselCard;
+export default Overlay;
 
 const styles = {
-  imgCard: {
+  overlayCard: {
     position: 'relative',
     overflow: 'hidden',
     mb: 30,
     mx: 15,
-    textAlign: 'center',
     '&.noThumb': {
       p: '25px',
       backgroundColor: '#F0F0F4',
@@ -47,8 +41,9 @@ const styles = {
       position: 'relative',
       img: {
         width: '100%',
+        filter: 'brightness(60%)',
       },
-      '.textContent': {
+      '.title': {
         position: 'absolute',
         top: 0,
         left: 0,
@@ -58,7 +53,8 @@ const styles = {
           'linear-gradient(180.06deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.71) 99.95%)',
         borderRadius: '5px',
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'center',
+        justifyContent: 'center',
         p: '25px',
         h3: {
           m: 0,
@@ -69,23 +65,20 @@ const styles = {
   },
   image: {
     img: {
-
-      borderRadius: '500px',
-      width: '200px',
-      justify: 'center',
+      borderRadius: '5px',
+      width: '100%',
+      display: 'block',
     },
   },
   content: {
     h3: {
-      fontSize: '18px',
+      fontSize: '34px',
       color: '#0F2137',
       lineHeight: 1.67,
       fontWeight: 700,
       mt: '20px',
       mb: '15px',
-      a: {
-        color: 'inherit',
-      },
+      color: 'inherit',
     },
     p: {
       fontSize: '16px',

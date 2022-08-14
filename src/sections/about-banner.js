@@ -1,27 +1,8 @@
 import React from 'react';
-import { Box, Container, Image, Heading, Text } from 'theme-ui';
+import { Box, Container, Heading, Text } from 'theme-ui';
 import { keyframes } from '@emotion/core';
-import logoImage from 'assets/banner-logo.png';
-import bannerImage from 'assets/banner-mockup.png';
-import bannerIcon1 from 'assets/banner-icon-1-1.svg';
-import bannerIcon2 from 'assets/banner-icon-1-2.svg';
-import bannerIcon3 from 'assets/banner-icon-1-3.svg';
-import bannerIcon4 from 'assets/banner-icon-1-4.svg';
-import bannerIcon5 from 'assets/banner-icon-1-5.svg';
-import bannerIcon6 from 'assets/banner-icon-1-6.svg';
-import bannerIcon7 from 'assets/dot-pattern.svg';
-import BlockTitle from 'components/block-title';
-import ServiceCard from 'components/cards/service-card';
-import serviceImage1 from 'assets/service-1.png';
-import img from 'assets/kid_pics/home.webp';
 import aboutImg from 'assets/kid_pics/about.webp'
-import Overlay from 'components/cards/overlay';
-
-import serviceImage2 from 'assets/service-2.png';
-import serviceImage3 from 'assets/service-3.png';
-import serviceImage4 from 'assets/service-4.png';
-import serviceImage5 from 'assets/service-5.png';
-import serviceImage6 from 'assets/service-6.png';
+import Overlay from 'components/overlays/overlay';
 
 
 const Banner = () => {
@@ -34,21 +15,7 @@ const Banner = () => {
         <Overlay
           image={aboutImg}
           title="About Us"
-          description={null}
-          path="/"
-          linkLabel={null}
         />
-        {/* <Grid sx={styles.grid}>
-          {SERVICES_DATA.map(({ image, text, heading, path }, index) => (
-            <ServiceCard
-              image={image}
-              text={text}
-              heading={heading}
-              path={path}
-              key={index}
-            />
-          ))}
-        </Grid> */}
 
         <Container sx={styles.containerSmall}>
           <Heading as="h1">
@@ -61,6 +28,8 @@ const Banner = () => {
             health benefits, and satisfaction that comes with exercise. Our group of devoted athletes strives to 
             help our campers on their journey of discovering the positive sides of whatever they do. 
           </Text>
+
+          {/* IDEA: Export the header and text to a data file instead, so I don't have to hardcode it! */}
 
         </Container>
       </Container>
