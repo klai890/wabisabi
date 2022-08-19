@@ -15,7 +15,7 @@ export default function CustomApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <FormspreeProvider project="{your-project-id}">
+    <FormspreeProvider project={process.env.PROJECT_ID}>
       <Component {...pageProps} />
     </FormspreeProvider>
   )
