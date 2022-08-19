@@ -1,2 +1,2 @@
 # Wabi Sabi
-Website for Wabi Sabi. Bootstrapped with a [NextJS template](https://startuplanding.redq.io/downloads/email/your@email.com/attachments/5). NextJS with Yarn package management, deployed with Vercel. 
+Website for Wabi Sabi. Bootstrapped with a [NextJS template](https://startup-agency-classic.vercel.app/). Download the template [here](https://startuplanding.redq.io/downloads/email/your@email.com/attachments/5). Built with NextJS with Yarn package management and deployed with Vercel. 
